@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npx turbo build --filter=portfolio-ai",
+  "outputDirectory": "apps/portfolio-ai/.next",
+  "framework": "nextjs",
+  "installCommand": "npm install"
+}
