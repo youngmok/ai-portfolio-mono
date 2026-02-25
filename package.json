@@ -1,0 +1,17 @@
+{
+  "name": "ai-portfolio-mono",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:portfolio": "turbo dev --filter=portfolio",
+    "dev:ai": "turbo dev --filter=portfolio-ai",
+    "build": "turbo build",
+    "build:portfolio": "turbo build --filter=portfolio",
+    "build:ai": "turbo build --filter=portfolio-ai",
+    "lint": "turbo lint"
+  },
+  "devDependencies": {
+    "turbo": "^2"
+  }
+}
