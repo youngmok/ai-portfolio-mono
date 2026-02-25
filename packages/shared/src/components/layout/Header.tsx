@@ -7,9 +7,15 @@ import { SITE_CONFIG } from "../../lib/constants";
 import ThemeToggle from "../ui/ThemeToggle";
 import Container from "./Container";
 
-export default function Header() {
+interface HeaderProps {
+  extraNav?: { label: string; href: string }[];
+}
+
+export default function Header({ extraNav }: HeaderProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navItems = [...SITE_CONFIG.nav, ...(extraNav || [])];
 
   const isActive = (href: string) => {
     const fullHref = SITE_CONFIG.basePath + href;
@@ -27,7 +33,7 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
-            {SITE_CONFIG.nav.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -67,7 +73,7 @@ export default function Header() {
         {/* Mobile menu */}
         {mobileOpen && (
           <nav className="md:hidden pb-4 space-y-1">
-            {SITE_CONFIG.nav.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
